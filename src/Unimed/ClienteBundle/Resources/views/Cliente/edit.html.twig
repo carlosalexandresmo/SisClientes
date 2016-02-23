@@ -1,0 +1,18 @@
+{% extends '::base.html.twig' %}
+{% block javascript %}
+    <script src="{{ asset('js/cep.js')}}" type="text/javascript"></script>
+{% endblock %}
+{% block body -%}
+    <h1>Edição de Cliente</h1>
+
+    {{ form(edit_form) }}
+
+        <ul class="record_actions">
+    <li>
+        <a class="btn btn-default" href="{{ path('cliente') }}" role="button">
+            Voltar para a listagem
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}

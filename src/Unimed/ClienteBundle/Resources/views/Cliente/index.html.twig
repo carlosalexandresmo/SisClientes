@@ -1,0 +1,57 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Lista de Clientes</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Dtnasc</th>
+                <th>Endereco</th>
+                <th>Email</th>
+                <th>Telefone</th>
+                <th>Celular</th>
+                <th>Matricula</th>
+                <th>Login</th>
+                <th>Senha</th>
+                <th>Id</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('cliente_show', { 'id': entity.id }) }}">{{ entity.nome }}</a></td>
+                <td>{% if entity.dtnasc %}{{ entity.dtnasc|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ entity.endereco }}</td>
+                <td>{{ entity.email }}</td>
+                <td>{{ entity.telefone }}</td>
+                <td>{{ entity.celular }}</td>
+                <td>{{ entity.matricula }}</td>
+                <td>{{ entity.login }}</td>
+                <td>{{ entity.senha }}</td>
+                <td>{{ entity.id }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('cliente_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('cliente_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a class="btn btn-default" href="{{ path('cliente_new') }}" role="button">
+                    Criar novo cliente
+            </a>
+        </li>
+    </ul>
+    {% endblock %}

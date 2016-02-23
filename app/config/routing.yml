@@ -1,0 +1,8 @@
+unimed_cliente:
+    resource: "@UnimedClienteBundle/Resources/config/routing.xml"
+    prefix:   /
+
+# import routes from a controller class
+cliente:
+    resource: "@UnimedClienteBundle/Controller/ClienteController.php"
+    type:     annotation
